@@ -1,0 +1,14 @@
+# 💊 MEDICO-S Backend
+
+Backend Express.js pour la gestion des stocks pharmaceutiques. Connecté à SQL Server avec validation, modularité, et scalabilité.
+
+---
+
+## 🚀 Installation du projet
+
+### 1. Cloner le dépôt
+
+```bash
+git clone https://github.com/ton-utilisateur/medico-s-backend.git
+cd medico-s-backend
+
