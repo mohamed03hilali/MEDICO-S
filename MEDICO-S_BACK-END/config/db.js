@@ -13,8 +13,8 @@ const config = {
     }
   },
   options: {
-    encrypt: process.env.DB_ENCRYPT === 'true', // 'true' ou 'false' dans .env
-    trustServerCertificate: process.env.DB_TRUST_CERT === 'true' // idem
+    encrypt: process.env.DB_ENCRYPT === 'true', 
+    trustServerCertificate: process.env.DB_TRUST_CERT === 'true' 
   }
 };
 
