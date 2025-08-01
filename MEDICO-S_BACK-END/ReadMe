@@ -8,7 +8,58 @@ Backend Express.js pour la gestion des stocks pharmaceutiques. Connecté à SQL 
 
 ### 1. Cloner le dépôt
 
-```bash
-git clone https://github.com/ton-utilisateur/medico-s-backend.git
-cd medico-s-backend
+git clone https://github.com/mohamed03hilali/MEDICO-S.git
 
+
+2. Installer les dépendances
+  npm install
+
+3. Créer le fichier .env
+  - Copier le fichier .env.example et le renommer en .env 
+  - Remplir les variables avec vos identifiants SQL Server.
+
+
+
+🛠️ Configuration SQL Server (Windows)
+1. Activer le mode d'authentification mixte
+  - Ouvrir SQL Server Management Studio (SSMS)
+  - Se connecter avec Windows Authentication
+  - Clic droit sur le serveur → Properties
+  - Onglet Security
+  - Cocher SQL Server and Windows Authentication mode
+  - Redémarrer le serveur SQL
+
+
+2. Créer le login SQL Server
+    CREATE LOGIN medico_user WITH PASSWORD = 'MotDePasseFort123!';
+
+3. Créer la base de données et l'utilisateur
+    CREATE DATABASE MEDICO_S;
+    USE MEDICO_S;
+
+    CREATE USER medico_user FOR LOGIN medico_user;
+    EXEC sp_addsrvrolemember 'medico_user', 'dbcreator';
+
+
+4. Activer le port TCP 1433
+  - Ouvrir SQL Server Configuration Manager
+  - Aller dans Protocols for SQLEXPRESS
+  - Activer TCP/IP
+  - Vérifier que le port TCP est bien 1433 pour IPAll
+
+
+5. Autoriser le port dans le pare-feu Windows
+    -run cmd as admin :
+      netsh advfirewall firewall add rule name="SQL Server" dir=in action=allow protocol=TCP localport=1433
+6. Tester la connexion avec SSMS
+Server name : localhost\SQLEXPRESS
+
+Authentication : SQL Server Authentication
+
+Login : medico_user
+
+Password : MotDePasseFort123!
+
+🧪 Lancer le serveur
+    npm start
+    Serveur lancé sur http://localhost:3000
